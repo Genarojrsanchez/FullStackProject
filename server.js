@@ -10,7 +10,10 @@ const dbupdateobject = {
 };
 
 mongoose.connect(process.env.DATABASE_URL, dbupdateobject);
+// =============middleware=============
+app.use(express.urlencoded({extended:true}));
 
+// ===========endOfMiddleware==========
 
 
 // ==============
@@ -21,11 +24,11 @@ app.get("/home/new", (req, response) => {
   response.render("new.ejs")
 })
 // ==============
-//
+//second route built is a post route its action is to create
 // ==============
 
-app.get("/",(req, response) => {
-  response.send("it\'s working");
+app.post("/home",(req, response) => {
+  response.send(req.body);
 })
 
 

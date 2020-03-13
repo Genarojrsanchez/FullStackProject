@@ -5,11 +5,16 @@
     <title></title>
   </head>
   <body>
+    <!-- this page is coming from my new route -->
+    <!--dont forget to place on form -->
     <h1>this page is coming from my new route</h1>
-    Name: <input type="text" name="name"/>
-    Fitness level: <input type="text" name="fitness"/>
-    Sleep: <input type="text" name="sleep"/>
-    Calories:  <input type="text" name="calories"/>
-    <a href="/home"></a>
+<form class="" action="/home" method="post">
+    Name: <input type="text" name="name"/><br>
+    Workout: <input type="text" name="fitness"/><br>
+    Sleep: <input type="text" name="sleep"/><br>
+    Calories:  <input type="text" name="calories"/><br>
+    <input type="submit" value="Submit"/><br>
+</form>
+    <a href="/home">Home page</a>
   </body>
 </html>
