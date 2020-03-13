@@ -24,32 +24,34 @@ app.use(express.urlencoded({extended:true}));
 
 app.get("/home/new", (req, response) => {
   response.render("new.ejs")
+});
+// ==============
+// index
+// ==============
+
+app.get("/home", (req, response) => {
+  response.render("index.ejs")
 })
+
+
 // ==============
 //second route built is a post route its action is to create
 // send whats created in Database after schema
 // ==============
 
-app.post("/home/", (req, response) => {
-  Workout.create(req.body, (err, createdWorkout) => {
-    console.log(err);
-    // console.log(createdWorkout);
-    console.log("type is:" + typeof error);
+app.post("/home", (req, response) => {
+  Workout.create(req.body,(err, createdWorkout) => {
+  //   if (err) console.log(err.message);
+  //   console.log(`there are ${createdWorkout}`);
+  // }else{
       response.send(createdWorkout);
   });
 });
 
 
+
 // // ==============
-// //
-// // ==============
-//
-// app.get("/variable/show", (req, response) => {
-//   response.send("my show page")
-// })
-//
-// // ==============
-// //
+// //show page
 // // ==============
 // app.get("/create/:id", (req, response) => {
 //   response.send("my create page")
