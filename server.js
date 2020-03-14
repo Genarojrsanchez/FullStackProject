@@ -18,7 +18,6 @@ app.use(methodOverride("_method"));
 // ==============
 // index
 // ==============
-
 app.get("/home", (req, response) => {
   Workout.find({}, (error, userworkouts) =>{
     response.render(
@@ -29,8 +28,6 @@ app.get("/home", (req, response) => {
     );
   })
 });
-
-
 // ==============
 // new route to get data back sent to new.ejs file.
 // ==============
@@ -66,8 +63,6 @@ app.post("/home/", (req, response) => {
       response.redirect("/home");
   });
 });
-
-
 // // ==============
 // // adjusting data delete edit and update
 // // ==============
@@ -96,7 +91,6 @@ app.delete("/home/:id", (req, response) => {
     response.redirect("/home");
   })
 })
-
 
 app.listen(process.env.PORT, () => {
   console.log("=============================");
