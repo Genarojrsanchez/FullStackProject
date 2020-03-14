@@ -9,13 +9,25 @@ const dbupdateobject = {
     useUnifiedTopology: true,
     useFindAndModify: false
 };
-
-
-
 // =============middleware=============
 app.use(express.urlencoded({extended:true}));
 
 // ===========endOfMiddleware==========
+
+// ==============
+// index
+// ==============
+
+app.get("/home", (req, response) => {
+  Workout.find({}, (error, userworkouts) =>{
+    response.render(
+      "index.ejs",
+      {
+      workouts: userworkouts
+      }
+    );
+  })
+});
 
 
 // ==============
@@ -25,13 +37,6 @@ app.use(express.urlencoded({extended:true}));
 app.get("/home/new", (req, response) => {
   response.render("new.ejs")
 });
-// ==============
-// index
-// ==============
-
-app.get("/home", (req, response) => {
-  response.render("index.ejs")
-})
 
 
 // ==============
@@ -39,29 +44,41 @@ app.get("/home", (req, response) => {
 // send whats created in Database after schema
 // ==============
 
-app.post("/home", (req, response) => {
+app.post("/home/", (req, response) => {
   Workout.create(req.body,(err, createdWorkout) => {
   //   if (err) console.log(err.message);
   //   console.log(`there are ${createdWorkout}`);
   // }else{
-      response.send(createdWorkout);
+      response.redirect("/home");
   });
 });
 
 
 
-// // ==============
-// //show page
-// // ==============
-// app.get("/create/:id", (req, response) => {
-//   response.send("my create page")
+// ==============
+//show page
+// ==============
+app.get("/home/:id", (req, response) => {
+  response.send("my show page")
+})
+
+// // // ==============
+// // // adjusting data delete edit and update
+// // // ==============
+//
+//
+// app.get("/home/:id/edit", (req, response) => {
+//   response.send("my edit action")
 // })
 //
-// // ==============
-// // adjusting data delete edit and update
-// // ==============
-
-
+// app.put("/home/:id", (req, response) => {
+//   response.send("my update action")
+// })
+//
+//
+// app.delete("/home/:id", (req, response) => {
+//   response.send("my delete action")
+// })
 
 app.listen(process.env.PORT, () => {
   console.log("=============================");

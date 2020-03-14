@@ -6,6 +6,20 @@
   </head>
   <body>
     <h1>This is my main page</h1>
-    
+    <ul>
+      <% for(let i = 0; i < workouts.length; i++) { %>
+        <li>
+          Name: <%=workouts[i].name%><br/>
+          Fitness: <%=workouts[i].fitness%><br/>
+          Sleep: <%=workouts[i].sleep%><br/>
+          Calories: <%=workouts[i].calories%><br/>
+          <br/>
+        </li>
+    <% } %>
+    </ul>
+    <nav>
+      <a href="/workouts/new"> Create New Workout</a>
+    </nav>
+
   </body>
 </html>
