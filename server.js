@@ -4,6 +4,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const Workout = require("./models/fitness.js")
 const db = mongoose.connection;
+const methodOverride = require("method-override")
 const dbupdateobject = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -11,7 +12,7 @@ const dbupdateobject = {
 };
 // =============middleware=============
 app.use(express.urlencoded({extended:true}));
-
+app.use(methodOverride("_method"));
 // ===========endOfMiddleware==========
 
 // ==============
@@ -79,11 +80,13 @@ app.post("/home/", (req, response) => {
 // app.put("/home/:id", (req, response) => {
 //   response.send("my update action")
 // })
-//
-//
-// app.delete("/home/:id", (req, response) => {
-//   response.send("my delete action")
-// })
+
+app.delete("/home/:id", (req, response) => {
+  Workout.findByIdAndRemove(req.params.id, (error, data) => {
+    response.redirect("/home");
+  })
+})
+
 
 app.listen(process.env.PORT, () => {
   console.log("=============================");
