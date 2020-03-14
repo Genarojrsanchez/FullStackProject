@@ -9,16 +9,15 @@
     <ul>
       <% for(let i = 0; i < workouts.length; i++) { %>
         <li>
-          Name: <%=workouts[i].name%><br/>
-          Fitness: <%=workouts[i].fitness%><br/>
-          Sleep: <%=workouts[i].sleep%><br/>
-          Calories: <%=workouts[i].calories%><br/>
+            <a href="/home/<%=workouts[i].id%>">
+            Name: <%=workouts[i].name%><br/>
+            </a>
           <br/>
         </li>
     <% } %>
     </ul>
     <nav>
-      <a href="/workouts/new"> Create New Workout</a>
+      <a href="/home/new"> Create New Workout</a>
     </nav>
 
   </body>

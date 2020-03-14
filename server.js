@@ -38,6 +38,19 @@ app.get("/home/new", (req, response) => {
   response.render("new.ejs")
 });
 
+// ==============
+//show page
+// ==============
+app.get("/home/:id", (req, response) => {
+  Workout.findById(req.params.id, (err, theFitness) => {
+      response.render(
+        "show.ejs",
+        {
+          workouts:theFitness
+        }
+      )
+  })
+});
 
 // ==============
 //second route built is a post route its action is to create
@@ -53,14 +66,6 @@ app.post("/home/", (req, response) => {
   });
 });
 
-
-
-// ==============
-//show page
-// ==============
-app.get("/home/:id", (req, response) => {
-  response.send("my show page")
-})
 
 // // // ==============
 // // // adjusting data delete edit and update
