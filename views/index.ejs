@@ -12,10 +12,13 @@
             <a href="/home/<%=workouts[i].id%>">
             Name: <%=workouts[i].name%>
             </a>
+            <!-- this is my delete link -->
             <form action="/home/<%=workouts[i].id%>?_method=DELETE" method="POST">
               <input type="submit" value="DELETE"/>
-            </form><br/>
-        </li>
+            </form>
+            <!-- this is my edit link -->
+            <a href="/home/<%=workouts[i].id%>/edit">Edit</a><br/>
+        </li><br/>
     <% } %>
     </ul>
     <nav>

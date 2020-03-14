@@ -53,10 +53,10 @@ app.get("/home/:id", (req, response) => {
   })
 });
 
-// ==============
+// ======================================
 //second route built is a post route its action is to create
 // send whats created in Database after schema
-// ==============
+// ======================================
 
 app.post("/home/", (req, response) => {
   Workout.create(req.body,(err, createdWorkout) => {
@@ -68,19 +68,29 @@ app.post("/home/", (req, response) => {
 });
 
 
-// // // ==============
-// // // adjusting data delete edit and update
-// // // ==============
-//
-//
-// app.get("/home/:id/edit", (req, response) => {
-//   response.send("my edit action")
-// })
-//
-// app.put("/home/:id", (req, response) => {
-//   response.send("my update action")
-// })
+// // ==============
+// // adjusting data delete edit and update
+// // ==============
 
+// ====edit=====
+app.get("/home/:id/edit", (req, response) => {
+  Workout.findById(req.params.id, (err, updateWorkout) => {
+    response.render(
+      "edit.ejs",
+      {
+        // going into my edit page
+        workouts: updateWorkout
+      }
+    )
+  });
+});
+// =====put=====
+app.put("/home/:id", (req, response) => {
+  Workout.findByIdAndUpdate(req.params.id, req.body,{new:true}, (err, updatedWorkout) => {
+      response.redirect("/home");
+  })
+})
+// ====delete===
 app.delete("/home/:id", (req, response) => {
   Workout.findByIdAndRemove(req.params.id, (error, data) => {
     response.redirect("/home");
@@ -96,7 +106,7 @@ app.listen(process.env.PORT, () => {
 // ========Connection code==============================
 mongoose.connect(process.env.DATABASE_URL, dbupdateobject);
 
-mongoose.connect('mongodb://localhost:27017/fitness', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, () => {console.log('The connection with mongod is established')});
+// mongoose.connect('mongodb://localhost:27017/fitness', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, () => {console.log('The connection with mongod is established')});
 // ======== end connection code==============================
 
 db.on("error", (err) => (console.log(err.message + "is mongod not running?")));

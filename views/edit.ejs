@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Edit Workouts</h1>
+    <form action="/home/<%=workouts.id%>?_method=PUT" method="POST">
+      Name: <input type="text" name="name" value="<%=workouts.name%>"><br/>
+      Workout: <input type="text" name="workout" value="<%=workouts.fitness%>"><br/>
+      Sleep: <input type="text" name="sleep" value="<%=workouts.sleep%>"><br/>
+      Calories: <input type="text" name="calories" value="<%=workouts.calories%>"><br/>
+      <input type="submit" value="Submit Change"/>
+    </form>
+  </body>
+</html>
