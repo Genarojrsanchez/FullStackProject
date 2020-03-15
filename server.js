@@ -17,6 +17,9 @@ app.use("/home", fitnessController);
 app.use(express.static("public"));
 // ===========endOfMiddleware==========
 
+app.get("/", (req, response) => {
+  response.render("home.ejs");
+});
 
 app.listen(process.env.PORT, () => {
   console.log("=============================");

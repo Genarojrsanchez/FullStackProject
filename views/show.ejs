@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  </head>
-
-  <body>
-    <header>
-        <h1>show Page</h1>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style media="screen">
+body{
+ text-align: center;
+}
+main{
+  /* align-self: center; */
+}
+#infoTab{
+  margin: 0 auto;
+}
+</style>
+</head>
+<body style="background-color: #B3AA9B">
+  <header><h1>show Page</h1></header>
   <main>
-    <ul class="list-inline">
-      <li class="list-inline-item">User: <%=workouts.name%></li>
-      <li class="list-inline-item">  Workout: <%=workouts.fitness%></li>
-      <li class="list-inline-item">Hours of sleep: <%=workouts.sleep%></li>
-      <li class="list-inline-item">Calories burn: <%=workouts.calories%></li>
-    </ul>
-  </main>
-  <footer>
-  </footer>
+    <div id="infoTab" class="card text-black bg-light" style="width: 18rem;">
+      <img src="<%=workouts.img%>" class="card-img-top" alt="image">
+      <div class="card-body">
+        <h5 class="card-title"><%=workouts.name%></h5>
+        <p class="card-text">
+          Workout: <%=workouts.fitness%><br/>
+          Hours of sleep: <%=workouts.sleep%><br/>
+          Calories burn: <%=workouts.calories%><br/>
+          Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <!-- this is my edit link -->
+          <a href="/home/<%=workouts.id%>/edit" class="btn btn-primary">Edit</a>
+          <!-- this is my delete link -->
+          <form  action="/home/<%=workouts.id%>?_method=DELETE" method="POST">
+            <input class="btn btn-primary" type="submit" value="DELETE"/>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <a href="/home">Home</a>
+    </footer>
   </body>
-</html>
+  </html>

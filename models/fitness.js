@@ -5,7 +5,7 @@ const fitnessSchema = new mongoose.Schema({
   fitness: {type: String, required:true},
   sleep: {type: String, required:true},
   calories:{type: String, required:true},
-
+  img: {type: String, required:true}
 });
 
 const Workout = mongoose.model("Workout", fitnessSchema);
