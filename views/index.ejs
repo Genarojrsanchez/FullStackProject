@@ -3,27 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   </head>
-  <body>
+  <body class="blockquote text-center">
     <h1>This is my main page</h1>
     <ul>
       <% for(let i = 0; i < workouts.length; i++) { %>
-        <li>
-            <a href="/home/<%=workouts[i].id%>">
+        <div>
             Name: <%=workouts[i].name%>
-            </a>
+            <a href="/home/<%=workouts[i].id%>" class="btn btn-primary">User Info</a>
+        </div><br/>
             <!-- this is my delete link -->
-            <form action="/home/<%=workouts[i].id%>?_method=DELETE" method="POST">
+            <form  action="/home/<%=workouts[i].id%>?_method=DELETE" method="POST">
               <input type="submit" value="DELETE"/>
             </form>
             <!-- this is my edit link -->
             <a href="/home/<%=workouts[i].id%>/edit">Edit</a><br/>
-        </li><br/>
+
     <% } %>
     </ul>
     <nav>
       <a href="/home/new"> Create New Workout</a>
     </nav>
-
+    <footer></footer>
   </body>
 </html>

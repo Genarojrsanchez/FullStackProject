@@ -3,12 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   </head>
+
   <body>
-    <h1>show Page</h1>
-    User: <%=workouts.name%><br/>
-    Workout: <%=workouts.fitness%><br/>
-    Hours of sleep: <%=workouts.sleep%><br/>
-    Calorie burn: <%=workouts.calories%><br/>
+    <header>
+        <h1>show Page</h1>
+    </header>
+  <main>
+    <ul class="list-inline">
+      <li class="list-inline-item">User: <%=workouts.name%></li>
+      <li class="list-inline-item">  Workout: <%=workouts.fitness%></li>
+      <li class="list-inline-item">Hours of sleep: <%=workouts.sleep%></li>
+      <li class="list-inline-item">Calories burn: <%=workouts.calories%></li>
+    </ul>
+  </main>
+  <footer>
+  </footer>
   </body>
 </html>

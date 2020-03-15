@@ -36,7 +36,6 @@ router.get("/:id", (req, response) => {
       )
   })
 });
-
 // ======================================
 //second route built is a post route its action is to create
 // send whats created in Database after schema
@@ -50,9 +49,9 @@ router.post("/", (req, response) => {
       response.redirect("/home");
   });
 });
-// // ==============
-// // adjusting data delete edit and update
-// // ==============
+// ==============
+// adjusting data delete edit and update
+// ==============
 
 // ====edit=====
 router.get("/:id/edit", (req, response) => {

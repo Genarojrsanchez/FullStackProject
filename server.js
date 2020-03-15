@@ -14,6 +14,7 @@ const dbupdateobject = {
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.use("/home", fitnessController);
+app.use(express.static("public"));
 // ===========endOfMiddleware==========
 
 
