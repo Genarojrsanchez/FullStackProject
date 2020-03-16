@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const db = mongoose.connection;
 const methodOverride = require("method-override");
 const bcrypt = require("bcrypt");
+const session = require("express-session");
 const dbupdateobject = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -14,6 +15,11 @@ const dbupdateobject = {
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
+app.use(session({
+  secret: "feedmeseymour",
+  resave: false,
+  saveUninitialized: false
+}))
 // =============controllers=======================
 const fitnessController = require("./controllers/fitness.js");
 app.use("/home", fitnessController);

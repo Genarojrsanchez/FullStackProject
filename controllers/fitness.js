@@ -6,23 +6,38 @@ const Workout = require("../models/fitness.js")
 // index
 // ==============
 router.get("/", (req, response) => {
-  Workout.find({}, (error, userworkouts) =>{
-    response.render(
-      "main/index.ejs",
-      {
-      workouts: userworkouts
-      }
-    );
-  })
+  if(req.session.user){
+    Workout.find({}, (error, userworkouts) =>{
+      response.render(
+        "main/index.ejs",
+        {
+        workouts: userworkouts,
+        user:req.session.user
+        }
+      );
+    })
+  } else {
+    response.redirect("/session/new");
+  }
 });
 // ==============
 // new route to get data back sent to new.ejs file.
 // ==============
 
 router.get("/new", (req, response) => {
-  response.render("main/new.ejs")
+  if(req.session.user){
+    Workout.find({}, (error, userworkouts) =>{
+      response.render(
+        "main/new.ejs",
+        {
+        workouts: userworkouts
+        }
+      );
+    })
+  } else {
+    response.redirect("/session/new");
+  }
 });
-
 // ==============
 //show page
 // ==============

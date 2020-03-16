@@ -13,6 +13,7 @@ router.post("/", (req, response) => {
     } else {
       const passwordMatch = bcrypt.compareSync(req.body.password, theUser.password)
       if(passwordMatch){
+        req.session.user = theUser 
         response.redirect("/home");
       } else {
         response.redirect("/session/new");

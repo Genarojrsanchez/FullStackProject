@@ -10,6 +10,7 @@ router.get("/new", (req,response) => {
 router.post("/", (req, response) => {
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
   User.create(req.body, (err, createdUser) => {
+    req.session.user = createdUser;
       response.redirect("/home");
   })
 });
