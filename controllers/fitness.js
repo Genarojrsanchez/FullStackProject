@@ -8,7 +8,7 @@ const Workout = require("../models/fitness.js")
 router.get("/", (req, response) => {
   Workout.find({}, (error, userworkouts) =>{
     response.render(
-      "index.ejs",
+      "main/index.ejs",
       {
       workouts: userworkouts
       }
@@ -20,7 +20,7 @@ router.get("/", (req, response) => {
 // ==============
 
 router.get("/new", (req, response) => {
-  response.render("new.ejs")
+  response.render("main/new.ejs")
 });
 
 // ==============
@@ -29,7 +29,7 @@ router.get("/new", (req, response) => {
 router.get("/:id", (req, response) => {
   Workout.findById(req.params.id, (err, theFitness) => {
       response.render(
-        "show.ejs",
+        "main/show.ejs",
         {
           workouts:theFitness
         }
@@ -57,7 +57,7 @@ router.post("/", (req, response) => {
 router.get("/:id/edit", (req, response) => {
   Workout.findById(req.params.id, (err, updateWorkout) => {
     response.render(
-      "edit.ejs",
+      "main/edit.ejs",
       {
         // going into my edit page
         workouts: updateWorkout

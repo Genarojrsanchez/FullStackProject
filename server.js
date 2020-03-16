@@ -4,17 +4,25 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const db = mongoose.connection;
 const methodOverride = require("method-override");
-const fitnessController = require("./controllers/fitness.js");
+const bcrypt = require("bcrypt");
 const dbupdateobject = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
 };
-// =============middleware=============
+// =============middleware====================
+app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
+// =============controllers=======================
+const fitnessController = require("./controllers/fitness.js");
 app.use("/home", fitnessController);
-app.use(express.static("public"));
+
+const userController = require("./controllers/users.js");
+app.use("/users", userController);
+
+const sessionController = require("./controllers/session.js");
+app.use("/session", sessionController);
 // ===========endOfMiddleware==========
 
 app.get("/", (req, response) => {
