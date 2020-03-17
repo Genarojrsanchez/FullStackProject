@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-
-    <form class="form-group col-md-6 mx-auto shadow p-3 mb-5 bg-white rounded m-5"  action="/users" method="POST">
-      <h1>Start the Burn</h1>
-      Username: <input class="form-control" type="text" name="username"><br/>
-      Password: <input class="form-control" type="password" name="password"><br/>
-      <input class="btn btn-outline-primary btn-md" data-toggle="button" type="submit" value="Sign Up"/>
-    </form>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <style media="screen">
+  h1{
+    font-family: 'Oswald', sans-serif;
+  }
+  </style>
+</head>
+<body>
+  <form class="form-group col-md-6 mx-auto shadow p-3 mb-5 bg-white rounded m-5"  action="/users" method="POST">
+    <h1>Start the Burn</h1>
+    Username: <input class="form-control" type="text" name="username"><br/>
+    Password: <input class="form-control" type="password" name="password"><br/>
+    <input class="btn btn-outline-primary btn-md" data-toggle="button" type="submit" value="Sign Up"/>
+  </form>
   <footer class="breadcrumb">
     <a class="breadcrumb-item" href="/">Home Page</a>
     <a class="breadcrumb-item" href="/session/new">Login Page</a>
   </footer>
-  </body>
+</body>
 </html>

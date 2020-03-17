@@ -4,20 +4,24 @@
   <meta charset="utf-8">
   <title></title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<style media="screen">
-body{
- text-align: center;
-}
-main{
-  /* align-self: center; */
-}
-#infoTab{
-  margin: 0 auto;
-}
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <style media="screen">
+  body{
+    text-align: center;
+  }
+  main{
+    /* align-self: center; */
+  }
+  #infoTab{
+    margin: 0 auto;
+  }
+  h1 {
+    font-family: 'Oswald', sans-serif;
+  }
 </style>
 </head>
-<body style="background-color: #B3AA9B">
-  <header><h1>show Page</h1></header>
+<body style="background-color: #F2F2F2">
+  <header><h1>User Info</h1></header>
   <main>
     <div id="infoTab" class="card text-black bg-light" style="width: 18rem;">
       <img src="<%=workouts.img%>" class="card-img-top" alt="image">
@@ -27,18 +31,18 @@ main{
           Workout: <%=workouts.fitness%><br/>
           Hours of sleep: <%=workouts.sleep%><br/>
           Calories burn: <%=workouts.calories%><br/>
-          Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <!-- this is my edit link -->
-          <a href="/home/<%=workouts.id%>/edit" class="btn btn-primary">Edit</a>
-          <!-- this is my delete link -->
-          <form  action="/home/<%=workouts.id%>?_method=DELETE" method="POST">
-            <input class="btn btn-primary" type="submit" value="DELETE"/>
-          </form>
-        </div>
+        </p>
+        <!-- this is my edit link -->
+        <a href="/home/<%=workouts.id%>/edit" class="btn btn-primary">Edit</a><br/>
+        <br/><!-- this is my delete link -->
+        <form  action="/home/<%=workouts.id%>?_method=DELETE" method="POST">
+          <input class="btn btn-primary" type="submit" value="DELETE"/>
+        </form>
       </div>
-    </main>
-    <footer>
-      <a href="/home">Home</a>
-    </footer>
-  </body>
-  </html>
+    </div>
+  </main>
+  <footer class="breadcrumb">
+    <a class="breadcrumb-item" href="/home">Home</a>
+  </footer>
+</body>
+</html>

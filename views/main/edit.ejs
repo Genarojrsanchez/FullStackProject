@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
     <h1>Edit Workouts</h1>
-    <form action="/home/<%=workouts.id%>?_method=PUT" method="POST">
+  </header>
+  <main>
+    <form class="list-group col-md-6 mx-auto shadow p-3 mb-5 bg-white rounded m-5" action="/home/<%=workouts.id%>?_method=PUT" method="POST">
       Name: <input type="text" name="name" value="<%=workouts.name%>"><br/>
       Workout: <input type="text" name="workout" value="<%=workouts.fitness%>"><br/>
       Sleep: <input type="text" name="sleep" value="<%=workouts.sleep%>"><br/>
@@ -15,5 +20,9 @@
       Profile Pic: <input type="text" name="img" value="<%workouts.img%>"><br/>
       <input type="submit" value="Submit Change"/>
     </form>
-  </body>
+  </main>
+  <footer class="breadcrumb">
+    <a class="breadcrumb-item" href="/home">Home</a>
+  </footer>
+</body>
 </html>

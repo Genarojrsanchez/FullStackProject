@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style media="screen">
-    body{
-     text-align: center;
-    }
-    main{
-      /* align-self: center; */
-    }
-    #infoTab{
-      margin: 0 auto;
-    }
-    </style>
-  </head>
-  <body class="blockquote text-center">
-    <header>
-        <h1>This is my main page</h1><br/>
-        <h2><% if(user) { %>
-          Hello <%= user.username %>,
-          Lets Start your new Journey
-        <% } %></h2>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <style media="screen">
+  body{
+    text-align: center;
+  }
+  main{
+    /* align-self: center; */
+  }
+  #infoTab{
+    margin: 0 auto;
+  }
+  h1{
+    font-family: 'Oswald', sans-serif;
+  }
+</style>
+</head>
+<body class="blockquote text-center" style="background-color: #F2F2F2">
+  <header class="jumbotron container-fluid" style="background-color: #B3AFAD">
+    <h1>Welcome to Fitness</h1><br/>
+    <em><h2><% if(user) { %>
+      Hello <%= user.username %>,
+      Ready to start your Journey
+      <% } %></h2></em>
     </header>
-  <main>
-    <% for(let i = 0; i < workouts.length; i++) { %>
-      <div id="infoTab" class="card border border-dark" style="width: 18rem;">
-        <img src="<%=workouts[i].img%>" class="card-img-top" alt="User Image...">
-        <div class="card-body">
-          <h5 class="card-title"> <%=workouts[i].name%></h5>
-          <a href="/home/<%=workouts[i].id%>" class="btn btn-primary">User Info</a><br>
-        </div>
-      </div><br/>
-  <% } %>
-  </main>
-    <footer>
-      <nav>
-        <a href="/home/new"> Create New Workout</a>
-      </nav>
-    </footer>
-  </body>
-</html>
+    <main class="shadow-lg p-3 mb-5 rounded">
+      <% for(let i = 0; i < workouts.length; i++) { %>
+        <div id="infoTab" class="card border border-dark" style="width: 18rem;">
+          <img src="<%=workouts[i].img%>" class="card-img-top" alt="User Image...">
+          <div class="card-body">
+            <h5 class="card-title"> <%=workouts[i].name%></h5>
+            <a href="/home/<%=workouts[i].id%>" class="btn btn-primary">User Info</a><br>
+          </div>
+        </div><br/>
+        <% } %>
+      </main>
+      <footer class="breadcrumb">
+        <a class="breadcrumb-item" href="/home/new"> Create New Workout</a>
+      </footer>
+    </body>
+    </html>
