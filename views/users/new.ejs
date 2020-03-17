@@ -3,17 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h1>new user</h1>
-    <form action="/users" method="POST">
-      Username: <input type="text" name="username"><br/>
-      Password: <input type="password" name="password"><br/>
+
+    <form class="form-group col-md-6 mx-auto shadow p-3 mb-5 bg-white rounded m-5"  action="/users" method="POST">
+      <h1>Start the Burn</h1>
+      Username: <input class="form-control" type="text" name="username"><br/>
+      Password: <input class="form-control" type="password" name="password"><br/>
       <input type="submit" value="Sign Up"/>
     </form>
-  <footer>
-    <a href="/">Home Page</a>
+  <footer class="breadcrumb">
+    <a class="breadcrumb-item" href="/">Home Page</a>
   </footer>
-
   </body>
 </html>

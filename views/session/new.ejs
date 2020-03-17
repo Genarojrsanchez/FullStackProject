@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Login page</h1>
-    <form action="/session" method="POST">
-      <input type="text" name="username" placeholder="Username"/><br/>
-      <input type="password" name="password" placeholder="Password"/><br/>
-      <input type="submit" value="Log In"/><br/>
+
+    <form class="form-group col-md-6 mx-auto shadow p-3 mb-5 bg-white rounded m-5"  action="/session" method="POST">
+        <h1>Login page</h1>
+      <input class="form-control" type="text" name="username" placeholder="Username"/><br/>
+      <input class="form-control" type="password" name="password" placeholder="Password"/><br/>
+      <input class="btn btn-primary btn-md" type="submit" value="Log In"/><br/>
     </form>
-  <footer>
-    <a href="/">Home Page</a>
+  <footer class="breadcrumb">
+    <a class="breadcrumb-item" href="/">Home Page</a>
   </footer>
   </body>
 </html>
